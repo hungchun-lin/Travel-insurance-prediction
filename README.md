@@ -1,14 +1,7 @@
 # Travel-insurance-prediction
 
----
-title: "Bayesian Analysis On Travel Insurance"
 author: "Hungchun Lin, Siyang Liu, Chen Chen"
 date: "12/8/2019"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
----
 
 ## Problem statement
 ### Background
