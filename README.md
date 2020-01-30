@@ -81,15 +81,11 @@ From the correlation plot, we found that the correlation between AgencyC2B and D
 ![Image description](diagnosis-3)
 ![Image description](diagnosis-4)
 
-## Conclusion
-In conclusion, non-robust Logistic regression is good enough to use on our project. In MCMC only 8 of 15 variables are significant. When there are high correlation variables in a dataset, this will impact the convergence of samples in MCMC.
-
-
 ## Prediction
 Finally, we want to check the accuracy of the MCMC result. We use the 8 significant variables in MCMC to train the model and compare the result with guessing parameter and without guessing parameter. When we train the model in order to imporve the accuracy, we also do the oversampling to balance our target. 
 
-
 From the result we can see, the two results are almost the same, as we know when alpha equals to 0, the model is non-robust, just the logistic regression. when alpha equals to 1, the model is a horizontal line with y intercept 1/2. This means our model is very very close to a non-robust model, this should because the value of our guessing parameter is too small, so it is almost has no influence on our model. 
 
+## Conclusion
 In conclusion, non-robust Logistic regression is good enough to use on our project. In MCMC only 8 of 15 variables are significant. When there are high correlation variables in a dataset, this will impact the convergence of samples in MCMC.
 
