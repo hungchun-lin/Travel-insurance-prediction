@@ -41,6 +41,7 @@ Dataset from Kaggle, Provided by a third-party insurance servicing company based
 ## Feature Selection
 As there are too many categorical variable in our dataset, consider the computing power, we will use lasso to do the feature selection and select the top 15 important features.
 
+![Image description](featureselection-1)
 
 
 ## Run the Robust Logistic regression
