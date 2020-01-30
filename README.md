@@ -1,6 +1,6 @@
 # Travel-insurance-prediction
 
-Author: Hungchun Lin, Siyang Liu, Chen Chen
+Author: Hungchun Lin, Chen Chen, Siyang Liu
 Date: December 2019
 
 ## Problem statement
@@ -79,7 +79,6 @@ Finally, we want to check the performance of the MCMC result. We use the 8 signi
 From the correlation plot, we found that the correlation between AgencyC2B and DestinationSINGOPORE is the highest. And the result from the previous MCMC also showed the beta of these two features are not stable, which can see from the four diagnosis plots. Therefore, we decided to drop one of them to see how multicollinearity influences the sample stability, and we choose to keep DestinationSINGOPORE in our next round. After we do the MCMC again, from the diagnosis plots, even the chains still not converge very well, but we can see that the new diagnosis of DestinationSINGOPORE did get improved a lot, the ESS increased and the MCSE decreased. 
 
 ![Image description](diagnosis-3)
-![Image description](diagnosis-4)
 
 ## Prediction
 Finally, we want to check the accuracy of the MCMC result. We use the 8 significant variables in MCMC to train the model and compare the result with guessing parameter and without guessing parameter. When we train the model in order to imporve the accuracy, we also do the oversampling to balance our target. 
