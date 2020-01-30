@@ -42,17 +42,49 @@ Dataset from Kaggle, Provided by a third-party insurance servicing company based
 As there are too many categorical variable in our dataset, consider the computing power, we will use lasso to do the feature selection and select the top 15 important features.
 
 ![Image description](featureselection-1)
+![Image description](featureselection-2)
 
 
 ## Run the Robust Logistic regression
 We use JAGS to run the robust logistic regression with target "Claim". Firstly, we need to do one-hot encoding on the categorical features, and select out the top 15 columns selected by Lasso. Then we split the data into training(90%) and testing(10%) dataset. We also check the correlation between features, we can see only AgencyC2B and DestinationSingapore has a little bit higher correlation, but due to actual situation, AgencyC2B client's destination are all to Singapore, but Client travel to Singapore are not all from AgencyC2B, we decide to keep this two features.
 
+![Image description](correlationplot)
 
 Finally, we generate the Robust Logistic regression using 4 chains with 3750 iterations.
 
+![Image description](guessingmode)
+
 From the distribution of posterior, we can see, there are 7 features beta are not significant, in other words, the HDI of the distribution contains "0", so these features may have beta equals zero, which means these features may not significant when interpreting the target "Claim". 
+
+![Image description](mcmc-1)
+![Image description](mcmc-2)
+
+For agency with positive mode like AgencyCWT, indicate travel with this agency may have higher chance to claim travel insurance. For Destination with negative mode, indicate travel to these countries are safe, insurance claim seldom happened.
+
+## Diagnosis analysis
+
+![Image description](diagnosis-1)
+
 From each beta's diagnosis, we can see, beta0 and beta5 are converge very good and have good Effective sample size, which mean these two betas are very stable. 
+
+![Image description](diagnosis-2)
+
 When looking at beta1 and beta11, we can see these two betas are converge very bad, the trace plots are sticky, the autocorrelation are very high, and the ESS are very low. This should be because of the higher correlation of the two features.
+
+## Performance Evaluation
+### guessing paramter
+Finally, we want to check the performance of the MCMC result. We use the 8 significant variables in MCMC to train the model and compare the result with guessing parameter and without guessing parameter. When we train the model in order to imporve the accuracy, we also do the oversampling to balance our target
+
+### multicollinearity
+From the correlation plot, we found that the correlation between AgencyC2B and DestinationSINGOPORE is the highest. And the result from the previous MCMC also showed the beta of these two features are not stable, which can see from the four diagnosis plots. Therefore, we decided to drop one of them to see how multicollinearity influences the sample stability, and we choose to keep DestinationSINGOPORE in our next round. After we do the MCMC again, from the diagnosis plots, even the chains still not converge very well, but we can see that the new diagnosis of DestinationSINGOPORE did get improved a lot, the ESS increased and the MCSE decreased. 
+
+![Image description](diagnosis-3)
+![Image description](diagnosis-4)
+
+## Conclusion
+In conclusion, non-robust Logistic regression is good enough to use on our project. In MCMC only 8 of 15 variables are significant. When there are high correlation variables in a dataset, this will impact the convergence of samples in MCMC.
+
+
 ## Prediction
 Finally, we want to check the accuracy of the MCMC result. We use the 8 significant variables in MCMC to train the model and compare the result with guessing parameter and without guessing parameter. When we train the model in order to imporve the accuracy, we also do the oversampling to balance our target. 
 
