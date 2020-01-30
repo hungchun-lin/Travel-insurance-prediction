@@ -1,7 +1,7 @@
 # Travel-insurance-prediction
 
-author: "Hungchun Lin, Siyang Liu, Chen Chen"
-date: "12/8/2019"
+Author: Hungchun Lin, Siyang Liu, Chen Chen
+Date: December 2019
 
 ## Problem statement
 ### Background
