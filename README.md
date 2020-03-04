@@ -1,6 +1,7 @@
 # Travel-insurance-prediction
 
 Author: Hungchun Lin, Chen Chen, Siyang Liu
+
 Date: December 2019
 
 ## Problem statement
