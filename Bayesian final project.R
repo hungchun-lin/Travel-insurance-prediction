@@ -2,7 +2,7 @@
 
 # Bayesian Methods for Data Science (DATS 6450 - 11, Fall 2019)
 # Data Science @ George Washington University
-# Author: Chen Chen, Hung Chun-lin, Liu siyang
+# Author: Hung Chun-Lin, Chen Chen, Liu siyang
 
 # Reference:
 # Some of the code is from the book by Professor John K. Kruschke
