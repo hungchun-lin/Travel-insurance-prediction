@@ -1,6 +1,6 @@
 ---
 title: "Bayesian Analysis On Travel Insurance"
-author: "HungChun Lin"
+author: "HungChun Lin, Siyang Liu, Chen Chen"
 date: "12/8/2019"
 output: 
   html_document:
